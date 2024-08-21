@@ -1,20 +1,3 @@
-import { alert } from "./js/alerts.js";
-
-function addUserCallback() {
-  const form = document.querySelector("#formulario");
-  form.addEventListener("submit", addUser);
-}
-
-function addUser(e) {
-  e.preventDefault();
-
-  const name_user = document.querySelector("#username").value;
-  const email_user = document.querySelector("#useremail").value;
-
-  if (name_user.trim() === "" && email_user.trim() === "") {
-    alert("Todos los campos son obligatorios");
-    return;
-  }
-}
+import { addUserCallback } from "./js/functions.js";
 
 document.addEventListener("DOMContentLoaded", addUserCallback);
