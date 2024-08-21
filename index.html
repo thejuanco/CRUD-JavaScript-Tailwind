@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./index.js"></script>
+    <script src="./index.js" type="module"></script>
     <title>Inicio</title>
 </head>
 <body>
     <h1 class="font-bold text-2xl text-center py-8">Manejo de usuarios</h1>
-    <div class="flex justify-center items-center">
+    <div class="flex justify-center items-center flex-col" id="container">
         <form id="formulario" class="flex flex-row space-x-4"> 
             <label for="username" class="font-semibold">Usuario</label>
             <input type="text" name="username" id="username" class="border-2 rounded-md py-1 px-2">
@@ -19,7 +19,8 @@
 
             <button type="submit" class="bg-gray-900 text-white px-6 rounded-3xl">Agregar</button>    
         </form>
-  
+
+        <div class="mt-4" id="alertDiv"></div>
     </div>
 </body>
 </html>
