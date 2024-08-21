@@ -1,18 +1,18 @@
-document.addEventListener('DOMContentLoaded', function(){
-    //Selectores 
-    const form = document.querySelector('formulario')
-    const name = document.querySelector('#username')
-    const email = document.querySelector('#useremail')
+function addUserCallback() {
+  const form = document.querySelector("#formulario");
+  form.addEventListener("submit", addUser);
+}
 
-    //Eventlisteners
-    listeners()
-    function listeners(){
-        // form.addEventListener('submit', addUser)
-        name.addEventListener('change', validate)
-        email.addEventListener('change', validate)
-    }
+function addUser(e) {
+  e.preventDefault();
 
-    function validate(){
-        console.log('Validando')
-    }
-})
+  const name_user = document.querySelector("#username").value;
+  const email_user = document.querySelector("#useremail").value;
+
+  if (name_user.trim() === "" && email_user.trim() === "") {
+    console.log("Todos los campos son obligatorios");
+    return;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", addUserCallback);
