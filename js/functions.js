@@ -34,7 +34,7 @@ function addUser(e) {
 }
 
 function addToHMTL() {
-  //cleanHTML()
+  cleanHTML()
 
   if(users.length > 0){
     users.forEach(user => {
@@ -55,5 +55,12 @@ function addToHMTL() {
 
       document.getElementById("users").appendChild(tBody)
     })
+  }
+}
+
+function cleanHTML(){
+  const users = document.getElementById("users")
+  while(users.firstChild){
+    users.removeChild(users.firstChild)
   }
 }
