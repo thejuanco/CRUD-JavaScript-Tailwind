@@ -49,9 +49,23 @@ function addToHMTL() {
       const tEmail = document.createElement('td')
       tEmail.classList.add('px-6', 'py-4')
       tEmail.textContent = user.email
+
+      const tdButton = document.createElement('td')
+      tdButton.classList.add('px-6', 'py-4', 'text-right', 'space-between')
+
+      const tButtonEdit = document.createElement('button')
+      tButtonEdit.classList.add('font-medium', 'text-blue-600', 'hover:underline', 'mt-3')
+      tButtonEdit.textContent = 'Editar'
+
+      const tButtonDelete = document.createElement('button')
+      tButtonDelete.classList.add('font-medium', 'text-red-600', 'hover:underline', 'mt-3')
+      tButtonDelete.textContent = 'Eliminar'
+
       //Añadirlos al body
       tBody.appendChild(tName)
       tBody.appendChild(tEmail)
+      tBody.appendChild(tButtonEdit)
+      tBody.appendChild(tButtonDelete)
 
       document.getElementById("users").appendChild(tBody)
     })
