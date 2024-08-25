@@ -54,11 +54,11 @@ function addToHMTL() {
       tdButton.classList.add('px-6', 'py-4', 'text-right', 'space-between')
 
       const tButtonEdit = document.createElement('button')
-      tButtonEdit.classList.add('font-medium', 'text-blue-600', 'hover:underline', 'mt-3')
+      tButtonEdit.classList.add('font-medium', 'text-blue-600', 'hover:underline', 'mt-3', 'mr-8')
       tButtonEdit.textContent = 'Editar'
 
       const tButtonDelete = document.createElement('button')
-      tButtonDelete.classList.add('font-medium', 'text-red-600', 'hover:underline', 'mt-3')
+      tButtonDelete.classList.add('font-medium', 'text-red-600', 'hover:underline', 'mt-3', 'ml-10')
       tButtonDelete.textContent = 'Eliminar'
 
       //Añadirlos al body
