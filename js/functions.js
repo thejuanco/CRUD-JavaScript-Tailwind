@@ -8,6 +8,8 @@ let objUser = {
 
 const users = [];
 let editando = false
+//Almacena el id del usuario a editar
+let userToIdEdit = null
 
 export function addUserCallback() {
   const form = document.querySelector("#formulario");
@@ -75,7 +77,7 @@ function addToHMTL() {
       tButtonDelete.classList.add('font-medium', 'text-red-600', 'hover:underline', 'mt-3', 'ml-10')
       tButtonDelete.textContent = 'Eliminar'
 
-      tButtonEdit.onclick = () => editUser(user.id)
+      tButtonEdit.onclick = () => editUser(user)
 
       //Añadirlos al body
       tBody.appendChild(tName)
@@ -95,6 +97,13 @@ function cleanHTML(){
   }
 }
 
-function editUser(id){
-  console.log(id)
+function editUser(objUser){
+  const name_user = document.querySelector("#username");
+  const email_user = document.querySelector("#useremail");
+
+  name_user.value = objUser.name
+  email_user.value = objUser.email
+
+  editando = true
+  userToIdEdit = objUser.id
 }
