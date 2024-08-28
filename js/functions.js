@@ -6,7 +6,7 @@ let objUser = {
   email: "",
 }
 
-const users = [];
+let users = [];
 let editando = false
 //Almacena el id del usuario a editar
 let userToIdEdit = null
@@ -31,7 +31,7 @@ function addUser(e) {
   objUser.email = email_user;
 
   if(editando){
-    console.log("Se esta editando")
+    updateUser(userToIdEdit, name_user, email_user)
   } else {
     users.push(Object.assign({}, objUser));
     document.querySelector('#formulario').reset()
@@ -106,4 +106,8 @@ function editUser(objUser){
 
   editando = true
   userToIdEdit = objUser.id
+}
+
+function updateUser(id, name, email){
+  users = users.map(user => user.id === id ? {id, name, email} : user)
 }
