@@ -1,12 +1,13 @@
-const objUser = {
+import { alert } from "./alerts.js";
+
+let objUser = {
   id: Date.now(),
   name: "",
   email: "",
 }
 
 const users = [];
-
-import { alert } from "./alerts.js";
+let editando = false
 
 export function addUserCallback() {
   const form = document.querySelector("#formulario");
@@ -27,10 +28,23 @@ function addUser(e) {
   objUser.name = name_user;
   objUser.email = email_user;
 
-  users.push(Object.assign({}, objUser));
+  if(editando){
+    console.log("Se esta editando")
+  } else {
+    users.push(Object.assign({}, objUser));
+    document.querySelector('#formulario').reset()
+  }
+
   addToHMTL()
-  document.querySelector('#formulario').reset()
-  console.log(users)
+  restarObject()
+}
+
+function restarObject(){
+  objUser = {
+    id: Date.now(),
+    name: "",
+    email: "",
+  }
 }
 
 function addToHMTL() {
@@ -61,6 +75,8 @@ function addToHMTL() {
       tButtonDelete.classList.add('font-medium', 'text-red-600', 'hover:underline', 'mt-3', 'ml-10')
       tButtonDelete.textContent = 'Eliminar'
 
+      tButtonEdit.onclick = () => editUser(user.id)
+
       //Añadirlos al body
       tBody.appendChild(tName)
       tBody.appendChild(tEmail)
@@ -77,4 +93,8 @@ function cleanHTML(){
   while(users.firstChild){
     users.removeChild(users.firstChild)
   }
+}
+
+function editUser(id){
+  console.log(id)
 }
